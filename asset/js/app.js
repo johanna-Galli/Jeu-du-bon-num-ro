@@ -8,13 +8,8 @@ let guessSubmit = document.querySelector('.guessSubmit');
 let guessField = document.querySelector('.guessField');
 
 let guessCount = 1;
-let resetButton;
-
-let name = "Bingo";
-
-let hello = "dit bonjour !";
-
-let greeting = name + hello;
+let resetButton = document.querySelector('.resetButon');
+resetButton.style.visibility = "hidden";
 
 
 guessSubmit.addEventListener("click", function (e) {
@@ -25,23 +20,30 @@ guessSubmit.addEventListener("click", function (e) {
 
 function checkGuess() {
 
+
    let userGuess = Number(guessField.value);
    if (guessCount === 1) {
-      guesses.textContent = 'Propositions précédentes :';
+      guesses.textContent = 'Propositions précédentes : ';
    }
    guesses.textContent += userGuess + ' ';
 
-   if (userGuess === randomNumber) {
+   console.log(guessCount);
+   
+// ANCIEN CODE
+
+   // si le numéro de l'utilisateur est egal au numero de l'ordinateur et que le nombre de coups est inférieur a 10
+   if (userGuess === randomNumber && guessCount < 10) {
       lastResult.textContent = 'Bravo, vous avez trouvé le nombre !';
-      lastResult.style.backgroundColor = 'green';
+      lastResult.style.color = 'green';
       lowOrHi.textContent = '';
-      setGameOver();
-   } else if (guessCount === 10) {
-      lastResult.textContent = '!!! PERDU !!!';
+      setGameWin();
+   } 
+// sinon si le nombre de coup est égal a 10
+   else if (guessCount === 10) {
       setGameOver();
    } else {
       lastResult.textContent = 'Faux !';
-      lastResult.style.backgroundColor = 'red';
+      lastResult.style.color = 'red';
       if (userGuess < randomNumber) {
          lowOrHi.textContent = "c'est plus !";
       } else if (userGuess > randomNumber) {
@@ -49,36 +51,43 @@ function checkGuess() {
       }
    }
 
-   guessCount++;
-   guessField.value = '';
-   guessField.focus();
+guessCount++;
+guessField.value = '';
+guessField.focus();
 }
 
-function setGameOver() {
+
+function setGameWin() {
    guessField.disabled = true;
    guessSubmit.disabled = true;
-   resetButton = document.createElement('button');
-   resetButton.textContent = 'Start new game';
+   resetButton.style.visibility = "hidden";
+   resetButton.addEventListener('click', resetGame(), exit);
+}
+
+
+function setGameOver() {
+   lastResult.textContent = '!!! PERDU !!!';
+   lowOrHi.textContent = "";
+   guesses.textContent = "";
+   resetButton.style.visibility = "hidden";
+   guessField.disabled = true;
+   guessSubmit.disabled = true;
    document.body.appendChild(resetButton);
    resetButton.addEventListener('click', resetGame());
+   exit;
 }
 
 function resetGame() {
    guessCount = 1;
-
    let resetParas = document.querySelectorAll('.resultParas p');
    for (let i = 0; i < resetParas.length; i++) {
       resetParas[i].textContent = '';
    }
-
    resetButton.parentNode.removeChild(resetButton);
-
    guessField.disabled = false;
    guessSubmit.disabled = false;
    guessField.value = '';
    guessField.focus();
-
    lastResult.style.backgroundColor = 'white';
-
    randomNumber = Math.floor(Math.random() * 100) + 1;
 }

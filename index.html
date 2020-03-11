@@ -10,30 +10,37 @@
 </head>
 
 <body>
-   <div id="jeu">
-
+   <header>
       <h1>LE JEU DU NUMÉRO</h1>
+   </header>
 
-      <p>Nous avons selectionné un numéro entre 1 et 100. essayez de deviner du quel il s'agit ! Vous avez 10 essais ...
+   <div class="game">
+      <p>L'ordinateur a choisi un nombre entre 1 et 100 ...
+         <br><br>
+         Essayez de le deviner !
+         <br><br>
+         Vous avez 10 essais ...
       </p>
 
       <form class="form" id="userNumber">
-         <label for="guessField">Enter a guess: </label>
+         <label for="guessField">Entrez un nombre</label>
          <input type="text" id="guessField" class="guessField">
-         <input type="submit" value="Submit guess" class="guessSubmit">
+         <input type="submit" value="Envoyer" class="guessSubmit">
       </form>
-
-      <div class="text">
-         <p class="guesses resultParas"></p>
-         <p class="lastResult resultParas"></p>
-         <p class="lowOrHi resultParas"></p>
-      </div>
-
-
-
-      <script src="asset/js/app.js"></script>
+   </div>
+   <div class="text">
+      <p class="lastResult resultParas"></p>
+      <p class="lowOrHi resultParas"></p>
+      <p class="guesses resultParas"></p>
+      <input type="submit" value="Rejouer" class="resetButon">
    </div>
 
+
+   <footer>
+      <p class="textFooter">Johanna Galli - 2020</p>
+   </footer>
 </body>
+
+<script src="asset/js/app.js"></script>
 
 </html>

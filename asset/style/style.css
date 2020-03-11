@@ -1,10 +1,53 @@
+/***********page entière***************/
 body {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    text-align: center;
-   background-color: grey;
+   overflow: hidden;
+   margin: 0;
+   width: 100%;
+   height: 100%;
 }
 
-#Result{
-   font-size: xx-large;
-   color: brown;
+/***********header***************/
+header {
+   margin: auto;
+   width: 50%;
+   background-color: rgb(184, 69, 69);
+   border-radius: 10px;
+}
+
+header h1 {
+   margin: 0;
+}
+
+/***********contenu***************/
+.game {
+   padding: 50px;
+   margin: 50px auto;
+   display:inline-block;
+   width: 500px;
+   border: solid 3px rgb(184, 69, 69);
+   border-radius: 10px;
+   background-color: rgba(184, 69, 69, 0.226);
+}
+
+.game form {
+   padding: 20px;
+}
+
+/***********footer***************/
+footer {
+   position: absolute;
+   bottom: 0;
+   left:0;
+   right:0;
+   margin-left: auto;
+   margin-right: auto;
+   width: 30%;
+   background-color: rgb(184, 69, 69);
+   border-radius: 10px;
+}
+
+.textFooter {
+   margin: 2px 0;
 }
