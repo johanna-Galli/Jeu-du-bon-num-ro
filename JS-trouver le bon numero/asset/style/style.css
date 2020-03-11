@@ -1,0 +1,10 @@
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   text-align: center;
+   background-color: grey;
+}
+
+#Result{
+   font-size: xx-large;
+   color: brown;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Trouvez le bon numéro</title>
+   <link rel="stylesheet" href="asset/style/style.css">
+</head>
+
+<body>
+   <div id="jeu">
+
+      <h1>LE JEU DU NUMÉRO</h1>
+
+      <p>Nous avons selectionné un numéro entre 1 et 100. essayez de deviner du quel il s'agit ! Vous avez 10 essais ...
+      </p>
+
+      <form class="form" id="userNumber">
+         <label for="guessField">Enter a guess: </label>
+         <input type="text" id="guessField" class="guessField">
+         <input type="submit" value="Submit guess" class="guessSubmit">
+      </form>
+
+      <div class="text">
+         <p class="guesses resultParas"></p>
+         <p class="lastResult resultParas"></p>
+         <p class="lowOrHi resultParas"></p>
+      </div>
+
+
+
+      <script src="asset/js/app.js"></script>
+   </div>
+
+</body>
+
+</html>
